@@ -33,6 +33,6 @@ async def process_stream(prompt, container):
 # ボタンを押したら生成開始
 if st.button("質問"):
     if prompt:
-        with st.spinner("考え中…（出力開始まで1分ぐらいかかります）"):
+        with st.spinner("考え中…（出力開始まで数十秒かかるときもあります）"):
             container = st.container()
             asyncio.run(process_stream(prompt, container))
