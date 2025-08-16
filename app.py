@@ -18,6 +18,8 @@ os.environ['AWS_DEFAULT_REGION'] = st.secrets['AWS_DEFAULT_REGION']
 AVAILABLE_MODELS = {
     "GPT-OSS 120B": "openai.gpt-oss-120b-1:0",
     "Nova Premier": "us.amazon.nova-premier-v1:0",
+    "Llama 4 Marverick": "us.meta.llama4-maverick-17b-instruct-v1:0",
+    "DeepSeek-R1": "us.deepseek.r1-v1:0",
     "Claude Opus 4.1": "us.anthropic.claude-opus-4-1-20250805-v1:0"
 }
 
