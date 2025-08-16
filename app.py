@@ -3,17 +3,39 @@ import asyncio
 import streamlit as st
 from strands import Agent
 
+# ページ設定
+st.set_page_config(
+    page_title="GPT on Bedrock",
+    layout="wide"
+)
+
 # Streamlitシークレットを環境変数に設定
 os.environ['AWS_ACCESS_KEY_ID'] = st.secrets['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY'] = st.secrets['AWS_SECRET_ACCESS_KEY']
 os.environ['AWS_DEFAULT_REGION'] = st.secrets['AWS_DEFAULT_REGION']
 
-# エージェントを作成
-agent = Agent("openai.gpt-oss-120b-1:0")
+# 利用可能なモデルの定義
+AVAILABLE_MODELS = {
+    "GPT-OSS 120B": "openai.gpt-oss-120b-1:0",
+    "Nova Premier": "us.amazon.nova-premier-v1:0",
+    "Claude Opus 4.1": "us.anthropic.claude-opus-4-1-20250805-v1:0"
+}
 
-# ページタイトルと入力欄を表示
-st.title("GPT on Bedrock")
-prompt = st.text_input("Strands Agent経由でGPT-OSS 120Bに質問しよう！")
+# サイドバーでモデル選択
+with st.sidebar:
+    selected_model_name = st.selectbox(
+        "モデル",
+        options=list(AVAILABLE_MODELS.keys()),
+        index=0,
+    )
+    selected_model = AVAILABLE_MODELS[selected_model_name]
+
+# エージェントを作成（選択されたモデルを使用）
+agent = Agent(selected_model)
+
+# メインエリア
+st.title("Strands with Bedrock")
+prompt = st.text_input(f"好きなLLMに質問しよう！")
 
 # 非同期ストリーミング処理
 async def process_stream(prompt, container):
@@ -33,6 +55,6 @@ async def process_stream(prompt, container):
 # ボタンを押したら生成開始
 if st.button("質問"):
     if prompt:
-        with st.spinner("考え中…（出力開始まで数十秒かかるときもあります）"):
+        with st.spinner("考え中…（利用者が多いと応答まで時間がかかります）"):
             container = st.container()
             asyncio.run(process_stream(prompt, container))
