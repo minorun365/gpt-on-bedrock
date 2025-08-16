@@ -8,7 +8,7 @@ from mcp.client.streamable_http import streamablehttp_client
 
 # ページ設定
 st.set_page_config(
-    page_title="GPT on Bedrock",
+    page_title="Strands with Bedrock",
     layout="wide"
 )
 
@@ -23,8 +23,8 @@ AVAILABLE_MODELS = {
     "GPT-OSS 120B": "openai.gpt-oss-120b-1:0",
     "Llama 4 Marverick": "us.meta.llama4-maverick-17b-instruct-v1:0",
     "DeepSeek-R1": "us.deepseek.r1-v1:0",
-    "Nova Premier（検索ツール対応）": "us.amazon.nova-premier-v1:0",
-    "Claude Opus 4.1（検索ツール対応）": "us.anthropic.claude-opus-4-1-20250805-v1:0"
+    "Nova Premier（MCP対応）": "us.amazon.nova-premier-v1:0",
+    "Claude Opus 4.1（MCP対応）": "us.anthropic.claude-opus-4-1-20250805-v1:0"
 }
 
 # サイドバーでモデル選択
@@ -51,7 +51,7 @@ async def process_stream(prompt, container):
 
     with mcp:
         tools = []
-        if "検索ツール対応" in selected_model_name:
+        if "MCP対応" in selected_model_name:
             tools = mcp.list_tools_sync()
         agent = Agent(
             model=selected_model,
