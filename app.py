@@ -2,6 +2,11 @@ import asyncio
 import streamlit as st
 from strands import Agent
 
+# Streamlitシークレットを環境変数に設定
+os.environ['AWS_ACCESS_KEY_ID'] = st.secrets['AWS_ACCESS_KEY_ID']
+os.environ['AWS_SECRET_ACCESS_KEY'] = st.secrets['AWS_SECRET_ACCESS_KEY']
+os.environ['AWS_DEFAULT_REGION'] = st.secrets['AWS_DEFAULT_REGION']
+
 # エージェントを作成
 agent = Agent("openai.gpt-oss-120b-1:0")
 
