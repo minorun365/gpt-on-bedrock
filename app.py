@@ -42,7 +42,7 @@ mcp = MCPClient(lambda: streamablehttp_client(
 
 # メインエリア
 st.title("Strands with Bedrock")
-prompt = st.text_input(f"好きなLLMに質問しよう！")
+prompt = st.text_input(f"サイドバーから好きなLLMを選ぼう！")
 
 # 非同期ストリーミング処理
 async def process_stream(prompt, container):
