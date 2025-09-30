@@ -8,7 +8,7 @@ from mcp.client.streamable_http import streamablehttp_client
 
 # ページ設定
 st.set_page_config(
-    page_title="Strands with Bedrock",
+    page_title="Strands AgentsでBedrockの色んなモデルを試そう",
     layout="wide"
 )
 
