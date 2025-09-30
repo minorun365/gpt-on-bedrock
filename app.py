@@ -42,7 +42,7 @@ mcp = MCPClient(lambda: streamablehttp_client(
 ))
 
 # メインエリア
-st.title("Strands AgentsでBedrockの色んなモデルを試そう")
+st.title("Strands with Bedrock")
 prompt = st.text_input(f"サイドバーから好きなLLMを選ぼう！")
 
 # 非同期ストリーミング処理
