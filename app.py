@@ -8,7 +8,7 @@ from mcp.client.streamable_http import streamablehttp_client
 
 # ページ設定
 st.set_page_config(
-    page_title="Strands AgentsでBedrockの色んなモデルを試そう",
+    page_title="Strands with Bedrock",
     layout="wide"
 )
 
@@ -42,7 +42,7 @@ mcp = MCPClient(lambda: streamablehttp_client(
 ))
 
 # メインエリア
-st.title("Strands with Bedrock")
+st.title("Strands AgentsでBedrockの色んなモデルを試そう")
 prompt = st.text_input(f"サイドバーから好きなLLMを選ぼう！")
 
 # 非同期ストリーミング処理
