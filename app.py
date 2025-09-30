@@ -20,11 +20,12 @@ os.environ['TAVILY_API_KEY'] = st.secrets['TAVILY_API_KEY']
 
 # 利用可能なモデルの定義
 AVAILABLE_MODELS = {
-    "GPT-OSS 120B": "openai.gpt-oss-120b-1:0",
-    "Llama 4 Marverick": "us.meta.llama4-maverick-17b-instruct-v1:0",
-    "DeepSeek-R1": "us.deepseek.r1-v1:0",
+    "Claude Sonnet 4.5（MCP対応）": "us.anthropic.claude-sonnet-4-5-20250929-v1:0",
+    "Claude Opus 4.1（MCP対応）": "us.anthropic.claude-opus-4-1-20250805-v1:0",
     "Nova Premier（MCP対応）": "us.amazon.nova-premier-v1:0",
-    "Claude Opus 4.1（MCP対応）": "us.anthropic.claude-opus-4-1-20250805-v1:0"
+    "GPT-OSS 120B": "openai.gpt-oss-120b-1:0",
+    "DeepSeek-R1": "us.deepseek.r1-v1:0",
+    "Llama 4 Marverick": "us.meta.llama4-maverick-17b-instruct-v1:0"
 }
 
 # サイドバーでモデル選択
